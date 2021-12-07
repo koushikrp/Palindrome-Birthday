@@ -101,10 +101,12 @@ function getNextPalindromeDate(enteredDate) {
 var dateInputRef = document.querySelector("#bday-input");
 var showBtnRef = document.querySelector("#show-btn");
 var resultRef = document.querySelector("#result");
+var loadingGIF = document.querySelector(".loading");
 
-function clickHandler(event) {
+function clickHandler() {
+	loadingGIF.classList.remove("active");
+	resultRef.style.display = "block";
 	var bdayStr = dateInputRef.value;
-
 	if (bdayStr !== "") {
 		let splitBdate = bdayStr.split("-");
 		let date = {
@@ -124,4 +126,9 @@ function clickHandler(event) {
 	}
 }
 
-showBtnRef.addEventListener("click", clickHandler);
+function timeout() {
+	resultRef.style.display = "none";
+	setTimeout(clickHandler, 2000);
+	loadingGIF.classList.add("active");
+}
+showBtnRef.addEventListener("click", timeout);

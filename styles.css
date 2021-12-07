@@ -61,6 +61,14 @@ input {
 	display: inline;
 	padding: 1rem;
 }
+.loading {
+	display: none;
+}
+.active {
+	display: block;
+	margin: 1rem auto;
+	text-align: center;
+}
 footer {
 	position: fixed;
 	bottom: 0;
